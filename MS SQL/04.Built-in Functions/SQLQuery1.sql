@@ -27,3 +27,50 @@ WHERE [Name] LIKE 'M%' OR
 [Name] LIKE 'B%' OR
 [Name] LIKE 'E%'
 ORDER BY [Name] ASC
+
+-- 7.	Find Towns Not Starting With
+SELECT TownID, [Name] FROM Towns
+WHERE [Name] NOT LIKE '[RBD]%'
+ORDER BY [Name] ASC
+
+-- 8.	Create View Employees Hired After 2000 Year
+CREATE VIEW V_EmployeesHiredAfter2000 AS
+SELECT FirstName,LastName FROM Employees
+WHERE DATEPART(YEAR, HireDate) > 2000
+
+-- 9.	Length of Last Name
+SELECT FirstName,LastName FROM Employees
+WHERE LEN(LastName) = 5
+
+-- 10.	Rank Employees by Salary
+SELECT EmployeeID, FirstName, LastName, Salary, DENSE_RANK() OVER 
+					(PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+FROM Employees
+WHERE Salary BETWEEN 10000 AND 50000
+ORDER BY Salary DESC
+
+-- 11.	Find All Employees with Rank 2
+WITH CTE_RankedEmployees AS
+(
+	SELECT EmployeeID, FirstName, LastName, Salary,
+		DENSE_RANK() OVER
+		(PARTITION BY Salary ORDER BY EmployeeID) AS [Rank]
+	FROM Employees
+	WHERE Salary BETWEEN 10000 AND 50000 
+)
+
+SELECT * 
+FROM CTE_RankedEmployees 
+WHERE [Rank] = 2
+ORDER BY Salary DESC
+
+-- 12.	Countries Holding 'A' 3 or More Times
+SELECT CountryName, ISOCode FROM Countries
+WHERE CountryName LIKE '%a%a%a%'
+ORDER BY ISOCode ASC
+
+-- 13.	 Mix of Peak and River Names
+SELECT PeakName, RiverName, LOWER(CONCAT(SUBSTRING(PeakName,1, LEN(PeakName)-1),RiverName)) 
+AS Mix FROM Peaks, Rivers
+WHERE RIGHT(PeakName, 1) = LEFT(RiverName, 1)
+ORDER BY Mix ASC

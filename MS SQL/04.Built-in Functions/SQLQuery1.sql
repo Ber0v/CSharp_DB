@@ -74,3 +74,42 @@ SELECT PeakName, RiverName, LOWER(CONCAT(SUBSTRING(PeakName,1, LEN(PeakName)-1),
 AS Mix FROM Peaks, Rivers
 WHERE RIGHT(PeakName, 1) = LEFT(RiverName, 1)
 ORDER BY Mix ASC
+
+-- 14.	Games from 2011 and 2012 Year
+SELECT TOP 50 [Name], FORMAT([Start],'yyyy-MM-dd') AS [START] FROM Games
+WHERE DATEPART(YEAR, [START]) BETWEEN 2011 AND 2012
+ORDER BY [START], [Name]
+
+-- 15.	 User Email Providers
+SELECT Username, SUBSTRING(Email, CHARINDEX('@', Email) + 1, LEN(Email)) AS EmailProvider
+FROM Users
+ORDER BY EmailProvider, Username
+
+-- 16.	 Get Users with IP Address Like Pattern
+SELECT Username, IpAddress FROM Users
+WHERE IpAddress LIKE '___.1_%._%.___'
+ORDER BY Username ASC
+
+-- 17.	 Show All Games with Duration and Part of the Day
+SELECT [Name], [Part of the Day] =
+	CASE
+		WHEN DATEPART(HOUR, [Start]) < 12 THEN 'Morning'
+		WHEN DATEPART(HOUR, [Start]) < 18 THEN 'Afternoon'
+		ELSE 'Evening'
+	END,
+	Duration = CASE
+		WHEN [Duration] <= 3 THEN 'Extra Short'
+		WHEN [Duration] <= 6 THEN 'Short'
+		WHEN [Duration] > 6 THEN 'Long'
+		ELSE 'Extra Long'
+		END
+FROM Games
+ORDER BY [Name], [Duration], [Part of the Day]
+
+-- 18.	 Orders Table
+SELECT Id, ProductName, OrderDate FROM Orders
+
+SELECT ProductName, OrderDate,
+	DATEADD(DAY, 3, OrderDate) AS [Pay Due],
+	DATEADD(MONTH, 1, OrderDate) AS [Delivery Due]
+FROM Orders

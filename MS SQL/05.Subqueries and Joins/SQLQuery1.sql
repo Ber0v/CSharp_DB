@@ -135,3 +135,47 @@ JOIN
 JOIN 
 	Departments d ON e.DepartmentID = d.DepartmentID
 ORDER BY e.EmployeeID
+
+-- 11.	Min Average Salary
+SELECT TOP 1 AVG(Salary) MinAverageSalary FROM Employees
+GROUP BY DepartmentID
+ORDER BY MinAverageSalary
+
+-- 12.	Highest Peaks in Bulgaria
+SELECT 
+	c.CountryCode,
+	m.MountainRange,
+	p.PeakName,
+	p.Elevation
+FROM MountainsCountries c
+JOIN Mountains m ON c.MountainId = m.Id
+JOIN Peaks p ON c.MountainId = P.MountainId
+WHERE c.CountryCode = 'BG' AND p.Elevation > 2835
+ORDER BY p.Elevation DESC
+
+-- 13.	Count Mountain Ranges
+SELECT 
+	c.CountryCode,
+	COUNT(m.MountainRange) AS MountainRanges
+FROM MountainsCountries c
+JOIN Mountains m ON c.MountainId = m.Id
+WHERE c.CountryCode IN ('BG', 'RU', 'US')
+GROUP BY 
+    c.CountryCode
+
+-- 14.	Countries With or Without Rivers
+SELECT TOP 5
+    c.CountryName,
+    r.RiverName
+FROM 
+    Countries c
+LEFT JOIN 
+    CountriesRivers rc ON c.CountryCode = rc.CountryCode
+LEFT JOIN 
+    Rivers r ON rc.RiverID = r.Id
+JOIN 
+    Continents cc ON c.ContinentCode = cc.ContinentCode
+WHERE 
+    cc.ContinentName = 'Africa'
+ORDER BY 
+    c.CountryName;

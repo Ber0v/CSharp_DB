@@ -111,3 +111,39 @@ WHERE DepartmentID = 1
 SELECT DepartmentID, AVG(Salary)
 FROM RichEmployees
 GROUP BY DepartmentID
+
+-- 16. Employees Maximum Salaries
+SELECT DepartmentID, MAX(Salary) AS MaxSalary FROM Employees
+GROUP BY DepartmentID
+HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
+
+-- 17. Employees Count Salaries
+SELECT COUNT(Salary) AS SalaryCount
+FROM Employees
+WHERE ManagerID IS NULL
+
+-- 18. *3rd Highest Salary
+SELECT DepartmentID, ThirRanking
+FROM
+	(SELECT 
+		DepartmentID, 
+		MAX(Salary) AS ThirRanking,
+		DENSE_RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS SalaryRanking
+	FROM Employees
+	GROUP BY DepartmentID, Salary) AS SubQuery
+WHERE SubQuery.SalaryRanking = 3
+
+-- 19. **Salary Challenge
+WITH DepartmentAvarageSalaries AS
+(
+	SELECT 
+		DepartmentID, AVG(Salary) AS AvarageSalary
+	FROM Employees
+	GROUP BY DepartmentID
+)
+SELECT TOP 10
+	FirstName, LastName, e.DepartmentID
+FROM Employees AS e
+JOIN DepartmentAvarageSalaries AS das ON das.DepartmentID = e.DepartmentID
+WHERE e.Salary > das.AvarageSalary
+ORDER BY e.DepartmentID

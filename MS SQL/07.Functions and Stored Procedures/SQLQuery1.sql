@@ -135,3 +135,63 @@ SELECT FirstName + ' ' + LastName AS [Full Name]
 EXEC usp_GetHoldersFullName 
 
 -- 10.	People with Balance Higher Than
+CREATE OR ALTER PROC usp_GetHoldersWithBalanceHigherThan @parameter DECIMAL(20,6)
+AS
+BEGIN
+	SELECT 
+	ah.FirstName AS [First Name]
+	,ah.LastName AS [Last Name]
+	
+	FROM AccountHolders AS ah
+	JOIN (
+	SELECT 
+	AccountHolderId
+	,SUM(Balance) AS TotalSum
+	FROM Accounts
+	GROUP BY AccountHolderId
+	) AS sas ON ah.Id=sas.AccountHolderId
+	WHERE TotalSum>@parameter
+	ORDER BY ah.FirstName,ah.LastName
+
+END
+
+--11. Future Value Function
+CREATE FUNCTION  ufn_CalculateFutureValue (@sum DECIMAL(14,4), @rate FLOAT,@years  INT)
+RETURNS DECIMAL (24,4)
+AS
+BEGIN
+	RETURN @sum * POWER((1 + @rate), @years)
+END
+
+--12. Calculating Interest
+CREATE PROCEDURE usp_CalculateFutureValueForAccount @accountId INT,@rate FLOAT
+AS
+BEGIN
+	SELECT 
+	ac.Id AS [Account Id]
+	,ah.FirstName AS [First Name]
+	,ah.LastName AS [Last Name]
+	,ac.Balance AS [Current Balance]
+	,dbo.ufn_CalculateFutureValue(ac.Balance,@rate,5)AS[Balance in 5 years]
+	
+	FROM AccountHolders AS ah
+	JOIN Accounts AS ac ON ah.Id=ac.AccountHolderId
+	WHERE ac.Id=@accountId
+END
+
+--13. *Cash in User Games Odd Rows
+CREATE OR ALTER FUNCTION ufn_CashInUsersGames (@GameName NVARCHAR(50))
+RETURNS TABLE 
+AS
+RETURN
+	SELECT
+	Sum(sg.Cash) AS SumCash
+	FROM
+		(
+		SELECT 
+		ug.Cash
+		,ROW_NUMBER() OVER (ORDER BY ug.Cash DESC) AS RowNumber
+		FROM UsersGames AS ug
+		JOIN Games AS g ON ug.GameId=g.Id
+		WHERE g.Name=@GameName) AS sg
+	WHERE sg.RowNumber%2=1

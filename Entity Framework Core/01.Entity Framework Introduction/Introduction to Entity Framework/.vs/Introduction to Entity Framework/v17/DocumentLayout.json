@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\01.Entity Framework Introduction\\Introduction to Entity Framework\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{112BC049-A554-4364-90B5-6AF3F0013D79}|2. Database First\\SoftUni.csproj|p:\\modules\\csharp_db\\entity framework core\\01.entity framework introduction\\introduction to entity framework\\2. database first\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{112BC049-A554-4364-90B5-6AF3F0013D79}|2. Database First\\SoftUni.csproj|solutionrelative:2. database first\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fd92f3d8-cebf-47b9-bb98-674a1618f364}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StartUp.cs",
+              "DocumentMoniker": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\01.Entity Framework Introduction\\Introduction to Entity Framework\\2. Database First\\StartUp.cs",
+              "RelativeDocumentMoniker": "2. Database First\\StartUp.cs",
+              "ToolTip": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\01.Entity Framework Introduction\\Introduction to Entity Framework\\2. Database First\\StartUp.cs",
+              "RelativeToolTip": "2. Database First\\StartUp.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAwBAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T19:37:33.482Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

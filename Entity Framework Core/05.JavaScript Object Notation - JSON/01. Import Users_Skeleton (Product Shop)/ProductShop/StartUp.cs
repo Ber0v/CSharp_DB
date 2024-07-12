@@ -29,18 +29,21 @@ namespace ProductShop
             //Console.WriteLine(GetSoldProducts(context));
 
             //Console.WriteLine(GetCategoriesByProductsCount(context));
+
+            //Console.WriteLine(GetUsersWithProducts(context));
         }
 
         public static string GetUsersWithProducts(ProductShopContext context)
         {
             var users = context.Users
-                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null && p.Price != null))
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
                 .Select(u => new
                 {
                     u.FirstName,
                     u.LastName,
                     u.Age,
                     SoldProducts = u.ProductsSold
+                    .Where(p => p.BuyerId != null)
                     .Select(p => new
                     {
                         p.Name,
@@ -51,14 +54,30 @@ namespace ProductShop
                 .OrderByDescending(u => u.SoldProducts.Length)
                 .ToArray();
 
+            var output = new
+            {
+                usersCount = users.Length,
+                users = users.Select(u => new
+                {
+                    u.FirstName,
+                    u.LastName,
+                    u.Age,
+                    SoldProducts = new
+                    {
+                        count = u.SoldProducts.Length,
+                        products = u.SoldProducts
+                    }
+                })
+            };
+
             var settings = new JsonSerializerSettings()
             {
-                //NullValueHandling = NullValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 Formatting = Formatting.Indented,
             };
 
-            return JsonConvert.SerializeObject(users, settings);
+            return JsonConvert.SerializeObject(output, settings);
         }
 
         public static string GetCategoriesByProductsCount(ProductShopContext context)

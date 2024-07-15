@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|p:\\modules\\csharp_db\\entity framework core\\06.extensible markup language - xml\\01. import users_skeleton (product shop)\\productshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|solutionrelative:productshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fd92f3d8-cebf-47b9-bb98-674a1618f364}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StartUp.cs",
+              "DocumentMoniker": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\StartUp.cs",
+              "RelativeDocumentMoniker": "ProductShop\\StartUp.cs",
+              "ToolTip": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\StartUp.cs",
+              "RelativeToolTip": "ProductShop\\StartUp.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAC8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-15T06:04:59.376Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

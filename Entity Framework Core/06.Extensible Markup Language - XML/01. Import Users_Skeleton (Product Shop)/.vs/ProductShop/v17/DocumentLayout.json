@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|p:\\modules\\csharp_db\\entity framework core\\06.extensible markup language - xml\\01. import users_skeleton (product shop)\\productshop\\productshop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|solutionrelative:productshop\\productshop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|p:\\modules\\csharp_db\\entity framework core\\06.extensible markup language - xml\\01. import users_skeleton (product shop)\\productshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18488EE8-C545-489E-A587-DD442B107B10}|ProductShop\\ProductShop.csproj|solutionrelative:productshop\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,12 +31,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductShop",
+              "DocumentMoniker": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\ProductShop.csproj",
+              "RelativeDocumentMoniker": "ProductShop\\ProductShop.csproj",
+              "ToolTip": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\ProductShop.csproj",
+              "RelativeToolTip": "ProductShop\\ProductShop.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-21T05:07:19.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "StartUp.cs",
               "DocumentMoniker": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\StartUp.cs",
               "RelativeDocumentMoniker": "ProductShop\\StartUp.cs",
               "ToolTip": "P:\\Modules\\CSharp_DB\\Entity Framework Core\\06.Extensible Markup Language - XML\\01. Import Users_Skeleton (Product Shop)\\ProductShop\\StartUp.cs",
               "RelativeToolTip": "ProductShop\\StartUp.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAC8AAAA5AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-15T06:04:59.376Z",
               "EditorCaption": ""
